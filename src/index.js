@@ -11,14 +11,13 @@ import {
     profile,
 } from "./components";
 import { callApi } from "./api";
-import "../src/style.css";
+// import "../src/Style.css";
 
 
 const App = () => {
     const [token, setToken] = useState("");
     const [userData, setUserData] = useState({});
     const [posts, setPosts] = useState([]);
-
     const fetchUserData = async (token) => {
         const { data } = await callApi({
             url: "/users/me",
@@ -51,7 +50,6 @@ const App = () => {
         const posts = await fetchPosts();
         setPosts(posts);
     },[]);
-
     return (
         <>
         <div id="header">
@@ -60,9 +58,9 @@ const App = () => {
             )}
             {!userData.username && <p> Welcome to Stranger's Things</p>}
         </div>
-        <Nav token={token} />
+        {/* <Nav token={token} /> */}
 
-        <Switch>
+        {/* <Switch>
             <Route exact path="/"></Route>
 
             <Route exact path="/posts">
@@ -109,14 +107,14 @@ const App = () => {
                     setUserData={setUserData}
                     />
             </Route>
-        </Switch>
+        </Switch> */ }
         </>
     );
-};
+}; 
 
 ReactDOM.render(
-    <Router>
-        <App />
-    </Router>,
+    // <Router>
+        <App/>,
+    // </Router>,
     document.getElementById("app")
 );
