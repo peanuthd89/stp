@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import {
-    accountStuff,
-    posts,
-    singleposts,
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { 
+    AccountStuff,
+    Posts,
+    Singleposts,
     Newpoststhings,
-    nav,
+    Nav,
     Login,
-    profile,
-} from "./components";
+    Profile,
+} from "./components/Index";
 import { callApi } from "./api";
-// import "../src/Style.css";
+import "../src/style.css";
 
 
 const App = () => {
@@ -35,21 +35,29 @@ const App = () => {
         return posts;
     };
 
-    useEffect(async () => {
-        if (!token) {
-            setToken(localStorage.getItem("token"));
-            return;
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetchUserData(token);
         }
-        const data = await fetchUserData(token);
-        if (data && data.username) {
-            setUserData(data);
-        }
+        fetchData();
+
     }, [token]);
 
-    useEffect(async () => {
-        const posts = await fetchPosts();
-        setPosts(posts);
-    },[]);
+    // useEffect(async () => {
+    //     if (!token) {
+    //         setToken(localStorage.getItem("token"));
+    //         return;
+    //     }
+    //     const data = await fetchUserData(token);
+    //     if (data && data.username) {
+    //         setUserData(data);
+    //     }
+    // }, [token]);
+
+    // useEffect(async () => {
+    //     const posts = await fetchPosts();
+    //     setPosts(posts);
+    //},[]);
     return (
         <>
         <div id="header">
@@ -58,9 +66,9 @@ const App = () => {
             )}
             {!userData.username && <p> Welcome to Stranger's Things</p>}
         </div>
-        {/* <Nav token={token} /> */}
+        <Nav token={token} />
 
-        {/* <Switch>
+        { <Switch>
             <Route exact path="/"></Route>
 
             <Route exact path="/posts">
@@ -75,7 +83,7 @@ const App = () => {
                 <Profile userData={userData} token={token} />
             </Route>
             <Route path="/posts/new">
-                <NewPostForm
+                <Newpoststhings
                 token={token}
                 setPosts={setPosts}
                 posts={posts}
@@ -83,7 +91,7 @@ const App = () => {
                 />
             </Route>
             <Route path="/posts/:postId/edit">
-                <NewPostForm
+                <Newpoststhings
                 token={token}
                 setPosts={setPosts}
                 posts={posts}
@@ -91,30 +99,30 @@ const App = () => {
                 />
             </Route>
             <Route path="/posts/:postId">
-                <SinglePost posts={posts} token={token} />
+                <Singleposts posts={posts} token={token} />
             </Route>
             <Route path="/register">
-            <accountStuff
+            <AccountStuff
                 action="register"
                 setToken={setToken}
                 setUserData={setUserData}
                 />
             </Route>
             <Route path="/login">
-                <accountStuff
+                <AccountStuff
                     action="login" 
                     setToken={setToken}
                     setUserData={setUserData}
                     />
             </Route>
-        </Switch> */ }
+        </Switch> }
         </>
     );
 }; 
 
 ReactDOM.render(
-    // <Router>
+    <Router>
         <App/>,
-    // </Router>,
+    </Router>,
     document.getElementById("app")
 );

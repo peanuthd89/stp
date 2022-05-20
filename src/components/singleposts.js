@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useParams } from "react-router-dom";
 import { callApi } from "../api";
 
-const SinglePost = ({ posts, token }) => {
+const Singleposts = ({ posts, token }) => {
     const { postId } = useParams();
     const post = posts.find((post) => post.id === postId);
     const [content, setContent] = useState("");
@@ -56,4 +56,4 @@ const SinglePost = ({ posts, token }) => {
     );
 };
 
-export default SinglePost;
+export default Singleposts;

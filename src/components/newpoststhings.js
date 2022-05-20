@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { callApi } from "../api"
-import { useNavigate, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
-const newpoststhings = ({ token, setPosts, posts, action }) => {
-    const navigate = useNavigate();
-    navigate('/home');
+const Newpoststhings = ({ token, setPosts, posts, action }) => {
+    const history = useHistory();
+    // navigate('/home');
     const { postId } = useParams();
     const [newPosts, setNewPosts] = useState({
         title: "",
@@ -100,4 +100,4 @@ const newpoststhings = ({ token, setPosts, posts, action }) => {
     );
     };
 
-    export default newpoststhings; 
+    export default Newpoststhings; 

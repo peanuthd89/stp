@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useHistory } from 'react-router';
 // import { Singlepost } from ".singlepost";
 import { callApi } from "../api";
 
@@ -26,8 +26,8 @@ const postMatches = (post , searchTerm) => {
 };
 
 const Posts = ({ posts, token, setPosts, userData }) => {
-    const navigate = useNavigate();
-    navigate('/home');
+    const history = useHistory();
+    // navigate('/home');
     const [searchTerm, setSearchTerm] = useState("");
 
     const postsToDisplay = posts.filter(post => postMatches(post, searchTerm));

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { callApi } from "../api";
 
 
@@ -16,8 +16,8 @@ const accountStuff = ({ action, setToken, setUserData }) => {
     const oppositeTitle = isLogin ? "Register" : "Login";
     const oppositeAction = isLogin ? "register" : "login";
     const actionURL = isLogin ? API_LOGIN : API_REGISTER;
-    const navigate = useNavigate();
-    navigate('/home');
+    const history = useHistory();
+    // navigate('/home');
 
     const handleSumbit = async (event) => {
         event.preventDefault();

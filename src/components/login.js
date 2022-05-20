@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt';
@@ -7,8 +7,8 @@ const BASE_URL = 'https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt'
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const navigate = useNavigate();
-    navigate('/home');
+    const history = useHistory();
+    // navigate('/home');
 
     const handleSumbit = async (event) => {
         event.preventDefault();

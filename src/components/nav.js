@@ -16,7 +16,7 @@ const Nav = ({ token }) => {
         <div id='nav-bar'>
             <div id='nav-links'>
                 <span>
-                    <link to="/posts">View Posts from Strangers!!</link>
+                    <Link to="/posts">View Posts from Strangers!!</Link>
                 </span>
                 <div>
                     {isLoggedIn ? (
