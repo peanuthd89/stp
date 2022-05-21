@@ -18,6 +18,7 @@ const App = () => {
     const [token, setToken] = useState("");
     const [userData, setUserData] = useState({});
     const [posts, setPosts] = useState([]);
+    
     const fetchUserData = async (token) => {
         const { data } = await callApi({
             url: "/users/me",

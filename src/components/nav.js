@@ -52,7 +52,7 @@ const Nav = ({ token }) => {
             </div>
         </div>
     );
-    console.log(isLoggedIn);
+    // console.log(isLoggedIn);
 };
 
 
