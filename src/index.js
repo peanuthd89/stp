@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { 
-    AccountStuff,
-    Posts,
-    Singleposts,
-    Newpoststhings,
-    Nav,
-    Login,
-    Profile,
-} from "./components/Index";
+ import Profile from "./components/profile"
+import Nav from "./components/nav"
+import AccountStuff from "./components/accountStuff"
+import Singleposts from './components/singleposts'
+import Posts from './components/posts'
+import Newpoststhings from './components/newpoststhings'
+import Login from './components/login'
 import { callApi } from "./api";
 import "../src/style.css";
 
@@ -19,30 +17,30 @@ const App = () => {
     const [userData, setUserData] = useState({});
     const [posts, setPosts] = useState([]);
     
-    const fetchUserData = async (token) => {
-        const { data } = await callApi({
-            url: "/users/me",
-            token,
-        });
-        return data;
-    };
+    // const fetchUserData = async (token) => {
+    //     const { data } = await callApi({
+    //         url: "/users/me",
+    //         token,
+    //     });
+    //     return data;
+    // };
 
-    const fetchPosts = async () => {
-        const {
-            data: { posts },
-        } = await callApi({
-            url: "/posts",
-        })
-        return posts;
-    };
+    // const fetchPosts = async () => {
+    //     const {
+    //         data: { posts },
+    //     } = await callApi({
+    //         url: "/posts",
+    //     })
+    //     return posts;
+    // };
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetchUserData(token);
-        }
-        fetchData();
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         const response = await fetchUserData(token);
+    //     }
+    //     fetchData();
 
-    }, [token]);
+    // }, [token]);
 
     // useEffect(async () => {
     //     if (!token) {

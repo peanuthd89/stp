@@ -1,12 +1,12 @@
 {
   "name": "strangerthingsproject",
   "version": "1.0.0",
-  "description": "Stranger Things project for Fullstack Synth project 2",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "react-scripts test",
     "start": "react-scripts start",
     "build": "react-scripts build"
+   
   },
   "dependencies": {
     "react": "^18.1.0",
@@ -43,3 +43,4 @@
     ]
   }
 }
+

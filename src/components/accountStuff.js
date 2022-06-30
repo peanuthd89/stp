@@ -3,13 +3,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { callApi } from "../api";
 
 
-const API_ROOT = "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt/users/";
-const API_REGISTER = `${API_ROOT}register`;
-const API_LOGIN = `${API_ROOT}login`;
-const API_USER = `${API_ROOT}me`;
-
-const accountStuff = ({ action, setToken, setUserData }) => {
-    const [usernanme, setUsername] = useState("");
+const AccountStuff = ({ action, setToken, setUserData }) => {
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const isLogin = action === "login";
     const title = isLogin ? "Login" : "Register";
@@ -17,13 +12,13 @@ const accountStuff = ({ action, setToken, setUserData }) => {
     const oppositeAction = isLogin ? "register" : "login";
     const actionURL = isLogin ? API_LOGIN : API_REGISTER;
     const history = useHistory();
-    // navigate('/home');
+     //navigate('/home');
 
     const handleSumbit = async (event) => {
         event.preventDefault();
         const data = await callApi({
-            url: `/users/${action}`,
-            body: { user: { usernanme, password}},
+            url: `users/`+ action,
+            body: { user: { username, password}},
             method: "POST",
         });
         const token = data?.data?.token;
@@ -58,4 +53,4 @@ const accountStuff = ({ action, setToken, setUserData }) => {
 };
 
 
-export default accountStuff;
+export default AccountStuff;

@@ -1,7 +1,7 @@
 // export const BASE_URL = "https://strangers-things.herokuapp.com/api/";
 // export const COHORT_NAME = "2202-ftb-et-web-pt";
 // export const API_URL = BASE_URL + COHORT_NAME;
-export const API_URL = "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt/Posts"
+export const API_URL = "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt/"
 
 
 // "https://strangers-things.herokuapp.com/api/2202-ftb-et-web-pt/Posts"

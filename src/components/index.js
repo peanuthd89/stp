@@ -1,7 +1,9 @@
-export { default as AccountStuff } from './AccountStuff'; 
-export { default as Posts } from './Posts';
-export { default as Singleposts } from './Singleposts';
-export { default as Newpoststhings } from './Newpoststhings';
-export { default as Nav } from './Nav';
-export { default as Login } from './Login';
-export { default as Profile } from './Profile';
+import AccountStuff from './accountStuff'; 
+import Posts from './posts';
+import Singleposts  from './singleposts';
+import  Newpoststhings  from './newpoststhings';
+import Nav  from './nav';
+import Login from './login';
+import Profile  from './profile';
+
+export default {AccountStuff, Posts, Singleposts, Newpoststhings, Nav, Login, Profile}

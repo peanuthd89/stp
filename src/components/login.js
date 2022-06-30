@@ -8,12 +8,12 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
-    // navigate('/home');
-
+    //navigate('/home');
+console.log("here")
     const handleSumbit = async (event) => {
         event.preventDefault();
 
-        const response = await fetch(`$BASE_URL}/users/login`,{
+        const response = await fetch(`{$BASE_URL}/users/login`,{
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
